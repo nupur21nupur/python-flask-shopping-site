@@ -1,0 +1,38 @@
+
+@app.route("/intrested.html",methods=["GET","POST"])
+def intrested():
+    valve_title =request.args.get("valve_title")
+    valve_price = request.args.get("valve_price")
+    valve_img = request.args.get("valve_img")
+    target_title=None
+    target_price = None
+    target_img = None
+    result = Mylist.query.all()
+    for x in result:
+        if x.title==valve_title:
+            target_title = valve_title
+            target_price = valve_price
+            target_img = valve_img
+            break
+    if target_title is None:
+        resultdress = Mylistdress.query.all()
+        for y in resultdress:
+            if y.title == valve_title:
+                target_title = valve_title
+                target_price = valve_price
+                target_img = valve_img
+                break
+    if params['user_email'] is "":
+        m="Please Login!"
+    else:
+        email = params['user_email']
+        m="check your mail for details"
+        subject = "CHECK OUT-MODIST"
+        msg = Message(
+            sender="nupur21nupur@gmail.com",
+            recipients=[email],
+            subject=subject
+        )
+        msg.html = render_template('product.html',title=target_title,price=target_price,img=target_img)
+        mail.send(msg)
+    return render_template('intrested.html', result=result, resultdress=resultdress, params=params,msged=m)

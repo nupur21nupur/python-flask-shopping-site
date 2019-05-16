@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>LoginForm</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{{url_for('static',filename='css/style2.css')}}">
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="inner">
+				  
+				<div class="image-holder">
+					<img src="{{url_for('static',filename='images/registration-form-4.jpg')}}" alt="">
+				</div>
+				<form action="/login.html" method="POST" novalidate="">
+					<div>
+					{% with messages = get_flashed_messages(with_categories=true) %}
+					  {% if messages %}
+					    <div class="alert alert-{{ messages.0.0 }}" role="alert">
+					      {% for category, message in messages %}
+					         <h5 style="color: red;"> {{ message }} <h5>
+					        <br> 
+					      {% endfor %}
+					    </div>
+					  {% endif %}
+					{% endwith %}
+				    </div>
+		
+					<h3>Login</h3>
+					<div class="form-holder">
+						<input type="text" placeholder="e-mail" class="form-control" name="email" id="em">
+					</div>
+					<div class="form-holder">
+						<input type="password" placeholder="Password" class="form-control" style="font-size: 15px;" name="pass" >
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" checked> I agree all statement in <a href="#">Terms & Conditions</a>
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="form-login">
+						<button type=submit id="sublogin">Login</button>
+						<p>Don't Have an account? <a href="signup.html" class="nav-link">Sign Up</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="{{url_for('static',filename='js/jquery-3.3.1.min2.js')}}"></script>
+		<script src="{{url_for('static',filename='js/main2.js')}}"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

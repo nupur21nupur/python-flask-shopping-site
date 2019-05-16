@@ -1,0 +1,14 @@
+{
+  "params":
+  {
+    "local_server":"True",
+    "local_uri":"sqlite:///C:/Users/DELL/PycharmProjects/shopit/templates/mydatabase/myproddb.db",
+     "prod_uri":"sqlite:///C:/Users/DELL/PycharmProjects/shopit/templates/mydatabase/myproddb.db",
+      "user_email":"",
+      "user_name": "",
+       "your_mail": "PLEASE ENTER YOUR MAIL ID",
+    "your_pass": "PLEASE ENTER YOUR PASSWORD DONT CHANGE user_email AND user_name"
+
+
+  }
+}
